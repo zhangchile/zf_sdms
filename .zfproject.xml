@@ -19,6 +19,24 @@
         <controllerFile controllerName="Home">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Student">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Dormitory">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Worker">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Visitor">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="About">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Contact">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -52,6 +70,24 @@
             <viewScriptFile forActionName="logout"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Home">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Student">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Dormitory">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Worker">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Visitor">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="About">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Contact">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

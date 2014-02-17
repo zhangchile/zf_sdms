@@ -36,7 +36,6 @@ class LoginController extends Zend_Controller_Action
     {
         // action body
         //从request参数中获取用户输入的用户名和密码
-
         $uid = $this->_getParam('uid');
         $pwd = $this->_getParam('pwd');
         //启动Session
@@ -58,6 +57,9 @@ class LoginController extends Zend_Controller_Action
     public function logoutAction()
     {
         // action body
+        $session = new Zend_Session_Namespace();
+        unset($session->login);
+        $this->_redirector->setGotoSimple('index', 'login');
     }
 
 
