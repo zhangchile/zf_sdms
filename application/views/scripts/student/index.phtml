@@ -73,7 +73,7 @@
        <label for="sname" class="col-sm-2 control-label">楼号</label>
        <div class="col-sm-8">
          <select name="b_no" class="form-control">
-           <?php foreach($building as $key => $value):?>
+           <?php foreach($this->building as $key => $value):?>
              <?php if($key == 0):?>
               <option  selected><?php echo $value['b_no'];?></option>
               <?php else:?>
@@ -139,9 +139,9 @@
               <td><?php echo $value;?></td>
           <?php endforeach;?>
           <td><a id="edit" type="button" class="btn btn-default btn-xs" 
-              href="<?php $url = 'student/edit/'.$values['s_no'];echo $this->baseUrl($url);?>">编辑</a>
+              href="<?php $url = 'student/edit?s_no='.$values['s_no'];echo $this->baseUrl($url);?>">编辑</a>
               <a id="delete" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteModal"
-              data="<?php $url = 'student/delete/'.$values['s_no'];echo $this->baseUrl($url);?>" >删除</a></td>
+              data="<?php $url = 'student/delete?s_no='.$values['s_no'];echo $this->baseUrl($url);?>" >删除</a></td>
           </tr>
       <?php endforeach;?>
             </table>
