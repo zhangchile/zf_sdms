@@ -1,4 +1,159 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Student</b> and script/action name <b>index</b></p>
-</div>
+
+<!-- Modal -->
+  <form action="<?php echo $this->baseUrl('student/add');?>" method="post" class="form-horizontal" role="form">
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">添加学生信息</h4>
+      </div>
+      <div class="modal-body">
+           <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">学号</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control input" name="s_no" placeholder="" >
+        </div>
+       </div>
+      
+          <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">姓名</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control input" name="s_name" placeholder="">
+        </div>
+       </div>
+      
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">性别</label>
+       <div class="col-sm-8">
+          <select class="form-control" name="s_sex">
+              <option  selected>男</option>
+              <option >女</option>
+          </select>
+        </div>
+       </div>
+      
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">电话</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control" name="s_phone" placeholder="">
+        </div>
+       </div>
+      
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">学院</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control" name="department" placeholder="">
+        </div>
+       </div>
+      
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">专业</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control" name="major" placeholder="">
+        </div>
+       </div>
+      
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">班级</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control" name="class" placeholder="">
+        </div>
+       </div>
+      
+
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">入住日期</label>
+       <div class="col-sm-8">
+          <input type="sname" class="form-control" name="live_time" placeholder="" value="<?php echo date('Y-m-j');?>">
+        </div>
+       </div>
+      
+         <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">楼号</label>
+       <div class="col-sm-8">
+         <select name="b_no" class="form-control">
+           <?php foreach($building as $key => $value):?>
+             <?php if($key == 0):?>
+              <option  selected><?php echo $value['b_no'];?></option>
+              <?php else:?>
+              <option ><?php echo $value['b_no'];?></option>
+              <?php endif;?>
+            <?php endforeach;?>
+          </select>
+          <!-- <input type="sname" class="form-control" name="b_no" placeholder=""> -->
+        </div>
+       </div>
+       <div class="form-group">
+       <label for="sname" class="col-sm-2 control-label">宿舍号</label>
+       <div class="col-sm-8">
+          <select name="d_no" class="form-control">
+           <option  selected>601</option>
+           <option  >602</option>
+           <option  >603</option>
+           <option  >604</option>
+           <option  >605</option>
+         </select>
+        </div>
+       </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary">保存</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
+      </div>
+      <div class="modal-body">
+        你确定要删除该信息吗？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <a id="del_ok" href="#" type="button" class="btn btn-danger">删除</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9"> 
+            <table class="table table-striped">
+              <tr>
+            <th>学号</th><th>姓名</th><th>性别</th><th>电话</th><th>学院</th><th>专业</th><th>班级</th><th>入住日期</th><th>楼号</th><th>宿舍号</th>
+          <th>操作</th></tr>
+          <?php foreach($this->result as $key => $values):?>
+          <tr>
+              <?php foreach ($values as $key => $value) :?>
+              <td><?php echo $value;?></td>
+          <?php endforeach;?>
+          <td><a id="edit" type="button" class="btn btn-default btn-xs" 
+              href="<?php $url = 'student/edit/'.$values['s_no'];echo $this->baseUrl($url);?>">编辑</a>
+              <a id="delete" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteModal"
+              data="<?php $url = 'student/delete/'.$values['s_no'];echo $this->baseUrl($url);?>" >删除</a></td>
+          </tr>
+      <?php endforeach;?>
+            </table>
+            <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">添加学生信息</a>
+        </div>
+          <div class="col-xs-6 col-sm-3 sidebar-default" id="sidebar" role="navigation">
+              <div class="list-group">
+                <a href="<?php echo $this->baseUrl('welcome');?>" class="list-group-item ">主页</a>
+                <a href="<?php echo $this->baseUrl('student');?>" class="list-group-item active">学生信息管理</a>
+                <a href="<?php echo $this->baseUrl('dormitory');?>" class="list-group-item">宿舍管理</a>
+                <a href="<?php echo $this->baseUrl('worker');?>" class="list-group-item">宿舍工作人员管理</a>
+                <a href="<?php echo $this->baseUrl('visitor');?>" class="list-group-item">来访人员管理</a>
+              </div>
+          </div>
+</div><!--/span-->

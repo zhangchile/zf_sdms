@@ -48,6 +48,7 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Admin"/>
           <dbTableFile dbTableName="Total"/>
+          <dbTableFile dbTableName="Normal"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>

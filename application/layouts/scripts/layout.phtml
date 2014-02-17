@@ -26,8 +26,10 @@
             <li><a href="<?php echo $this->baseUrl('contact');?>">联系我</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">欢迎您，<?php if($this->name) 
-            echo $this->name; else echo '' ;?></a></li>
+            <li><a href="#">欢迎您，
+            <?php $session = new Zend_Session_Namespace();
+            $name = $session->login['name'];
+            if($name) echo $name; else echo '' ;?></a></li>
             <li><a href="<?php echo $this->baseUrl('login/logout');?>">退出</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
